@@ -1,7 +1,12 @@
+import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import create_engine, text
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 app = FastAPI()
 
@@ -13,8 +18,10 @@ app.add_middleware(
     allow_headers=["*"], 
 )
 
-# Database configuration
-engine = create_engine('postgresql://postgres:postgres@db/northwind')
+DATABASE_URL = os.getenv('DATABASE_URL')
+
+
+engine = create_engine(DATABASE_URL)
 Session = sessionmaker(bind=engine)
 
 @app.get('/')

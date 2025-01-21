@@ -25,4 +25,4 @@ northwindclient/.env.local
 northwindclient/.env.development.local
 northwindclient/.env.test.local
 northwindclient/.env.production.local
-
+.env

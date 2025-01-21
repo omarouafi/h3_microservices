@@ -47,7 +47,7 @@ services:
     depends_on:
       - db
     environment:
-      DB_HOST: db
+      DATABASE_URL: postgresql://postgres:postgres@db/northwind
 
   nginx:
     image: nginx:latest
