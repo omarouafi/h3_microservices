@@ -43,14 +43,32 @@ services:
       - 8085:8780
     networks:
       - db
+      - mynetwork
     depends_on:
       - db
     environment:
       DB_HOST: db
 
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certs:/etc/ssl/certs
+    networks:
+      - mynetwork
+    depends_on:
+      - app
+    restart: always
+
 networks:
   db:
     driver: bridge
+  mynetwork:
+    driver: bridge
+
 
 volumes:
   pgadmin_root_prefs:
