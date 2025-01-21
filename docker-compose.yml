@@ -37,6 +37,7 @@ services:
   app:
     container_name: app
     build: .
+    image: omarouafi/northwindapi:latest
     volumes:
       - ./files:/files
     ports:
