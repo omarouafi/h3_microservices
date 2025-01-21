@@ -2,6 +2,7 @@ services:
   db:
     container_name: db
     image: postgres:latest
+    restart: unless-stopped
     environment:
       POSTGRES_DB: northwind
       POSTGRES_USER: postgres
@@ -38,6 +39,8 @@ services:
     container_name: app
     build: .
     image: omarouafi/northwindapi:latest
+    container_name: northwindapi
+    restart: unless-stopped
     volumes:
       - ./files:/files
     ports:
@@ -52,6 +55,8 @@ services:
 
   nginx:
     image: nginx:latest
+    container_name: nginx
+    restart: unless-stopped
     ports:
       - "80:80"
       - "443:443"
