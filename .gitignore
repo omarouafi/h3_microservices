@@ -2,3 +2,4 @@ dbdata
 .idea/
 files/
 certs/
+__pycache__/
