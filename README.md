@@ -25,7 +25,9 @@
 
 
 3. **Accéder à l'application** :  
-    - L'application backend sera disponible à `http://localhost:8780`  
+    - L'application backend sera disponible à `http://localhost:8085`  
+    - La documentation du api
+    `http://localhost:8085/docs`  
     - L'application frontend (northwindclient) sera disponible à `http://localhost:3333`  
 
 ## Informations supplémentaires
